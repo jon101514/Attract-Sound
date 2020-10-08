@@ -1,0 +1,279 @@
+body {
+    font-family: Helvetica, sans-serif;
+    color: ghostwhite;
+    background-color: #8A6DE0;
+    transition: background 10s;
+}
+
+h1, h2, h3, h4 {
+    background-color: inherit;
+    text-align: center;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* For the speaker graphic */
+#speaker {
+    color: white;
+    opacity: 0.75;
+}
+
+/* Container for the master/universal volume slider */
+#volume{
+    display:block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* For the two buttons in the top's control panel */
+#buttons{
+    display:block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* For the whole control panel */
+#controls{
+    width: 33%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 4px solid white;
+    opacity: 0.75;
+    border-radius: 32px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+/* Button Styling for Random and Stop All Buttons */
+.control-button{
+    background-color: white;
+    font-size: 24px;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin:1em;
+    border-radius: 0.75em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #8A6DE0;
+    opacity: 0.75;
+    transition: color 10s;
+}
+
+.control-button:hover {
+    opacity: 1;
+}
+
+/* Master volume controls */
+#uni-vol{
+    -webkit-appearance: none;
+    height: 15px;
+    border-radius: 5px;  
+    background: #c3c3c3;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position:relative;
+    bottom: 3em;
+}
+
+#uni-vol::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: white;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+#uni-vol::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+
+button {
+    background-color: inherit;
+    opacity: 0.33;
+    border: 0px;
+    transition-duration: 0.25s;
+    padding-top: 2em;
+}
+
+button:hover {
+    opacity: 0.67;
+}
+
+button:checked {
+    opacity: 1;
+}
+
+button[data-playing="true"] {
+    opacity: 1;
+}
+
+button[data-playing="false"] {
+    opacity:0.33;
+}
+
+.playbuttons{
+    display: block;
+    text-align: center;
+}
+
+#logo{
+    opacity:0.75;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33%;
+}
+
+/* Volume Slider -- from https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.control-volume{
+    -webkit-appearance: none;
+    height: 15px;
+    border-radius: 5px;  
+    background: #c3c3c3;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    /* Position the volume slider below the button. */
+    display: inline;
+    position:relative;
+    left:-172px;
+    top: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.control-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: white;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.control-volume::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+/* Place the elements in a grid */
+.grid-container {
+    padding-left:2.5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+/* FOR RESPONSIVE DESIGN, HANDLING MOBILE PLATFORMS
+ *
+ */
+@media screen and (max-width: 768px) {
+    /* Button Styling for Random and Stop All Buttons */
+    .control-button{    
+        font-size: 18px;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+        padding-left: 1em;
+        padding-right: 1em;
+        border-radius: 0.5em;
+    }
+    /* For the speaker graphic */
+    #speaker {
+        width: 33%;
+    }
+    /* Master volume controls */
+    #uni-vol{
+        height: 1em;
+        top: .5em;
+    }
+
+    #uni-vol::-webkit-slider-thumb {
+        height: 1em;
+    }
+
+    #uni-vol::-moz-range-thumb {
+        height: 1em;
+    }
+    #logo{
+        width: 67%;
+    }
+    .icon {
+        width: 50%;
+    }
+    /* Volume Slider */
+    .control-volume{
+        /* Position the volume slider below the button. */
+        left:0px;
+        top: 0.5em;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        width: 75%;
+    }
+    /* Place the elements in a grid -- a three-column grid for mobiles */
+    .grid-container {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        align-content: center;
+        position:relative;
+        right: 0.67em;
+    }
+}
+
+/* FIREFOX-SPECIFIC SLIDER POSITION FIX */
+@-moz-document url-prefix() {
+    .control-volume{
+        -webkit-appearance: none;
+        height: 15px;
+        border-radius: 5px;  
+        background: #c3c3c3;
+        opacity: 1;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        /* Position the volume slider below the button. */
+        display: inline;
+        position:relative;
+        left:-189px;
+        top: 4em;
+        margin-top: 4em;
+        margin-bottom: 2em;
+    }
+}

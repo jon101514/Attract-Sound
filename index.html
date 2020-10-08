@@ -1,0 +1,551 @@
+<!-- 
+Jonathan So, jonso.gamedev@gmail.com, jonathan101514@gmail.com, and jds7523@rit.edu
+Attract Sound
+Updated October 2020
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <title>Attract Sound</title>
+  <meta name="description" content="Create your own audio simulation of an arcade.">
+  <meta name="author" content="Jonathan So">
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body>
+    
+    <!-- Title -->
+    <div>
+        <img src="img/logo_transparent.png" alt="Attract Sound" id="logo" title="Welcome to Attract Sound!"> 
+        <h2>Create your own audio simulation of an arcade.</h2>
+        <h3>Click on a few icons to get started.</h3>
+        <h3>Hover over icons for historical info.</h3>
+    </div>
+
+    <!-- Control Panel -->
+    <div id="controls">
+        <span id="buttons">
+            <button type="button" id="random" class="control-button"><b>Random</b></button>
+            <button type="button" id="stop" class="control-button"><b>Stop All</b></button>
+        </span>
+        <span id="volume">
+            <img src="img/vol_3.png" alt="volume" id="speaker"> 
+            <input type="range" id="uni-vol" min="0" max="1" value="1" step="0.01" data-action="volume" />
+                <datalist>
+                    <option value="0" label="min">
+                    <option value="1" label="max">
+                </datalist>
+        </span>
+    </div>
+    
+    <div class="playbuttons">
+    <!-- Use a flexbox container to responsively store all the game buttons. -->
+    <div class="grid-container">
+    
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/pong.png" alt="Pong" class="icon" id="pong" title="Pong (Atari, 1972)&#010;An electronic version of table tennis; the first commercially-successful video game."> 
+            </button>
+            <audio preload="auto" loop  id="pong_audio">
+                <source src="src/pong.mp3" type="audio/mpeg">
+                <source src="src/pong.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="pong_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/boothill.png" alt="Boot Hill" class="icon" id="boothill" title="Boot Hill (Midway, 1977)&#010;Western-themed shooting game for one or two players."> 
+            </button>
+            <audio preload="auto" loop  id="boothill_audio">
+                <source src="src/boothill.mp3" type="audio/mpeg">
+                <source src="src/boothill.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="boothill_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/superbreakout.png" alt="Super Breakout" class="icon" id="breakout" title="Super Breakout (Atari, 1978)&#010;A sequel to Breakout and a single-player version of Pong, replacing the other player with a wall of bricks."> 
+            </button>
+            <audio preload="auto" loop  id="superbreakout_audio">
+                <source src="src/superbreakout.mp3" type="audio/mpeg">
+                <source src="src/superbreakout.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="superbreakout_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/spaceinvaders.png" alt="Space Invaders" class="icon" id="spaceinvaders" title="Space Invaders (Taito, 1978)&#010;Credited with starting the arcade's Golden Age."> 
+            </button>
+            <audio preload="auto" loop  id="spaceinvaders_audio">
+                <source src="src/spaceinvaders.mp3" type="audio/mpeg">
+                <source src="src/spaceinvaders.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="spaceinvaders_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/asteroids.png" alt="Asteroids" class="icon" id="asteroids" title="Asteroids (Atari, 1979)&#010;Vector game where players break asteroids into smaller pieces."> 
+            </button>
+            <audio preload="auto" loop  id="asteroids_audio">
+                <source src="src/asteroids.mp3" type="audio/mpeg">
+                <source src="src/asteroids.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="asteroids_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/galaxian.png" alt="Galaxian" class="icon" id="galaxian" title="Galaxian (Namco, 1979)&#010;Enemies dive bomb the player in this colorful shooter."> 
+            </button>
+            <audio preload="auto" loop  id="galaxian_audio">
+                <source src="src/galaxian.mp3" type="audio/mpeg">
+                <source src="src/galaxian.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="galaxian_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/battlezone.png" alt="Battlezone" class="icon" id="battlezone" title="Battlezone (Atari, 1980)&#010;A tank simulation game viewed through a periscope. A version called the Bradley Trainer was commissioned by the US Army."> 
+            </button>
+            <audio preload="auto" loop  id="battlezone-audio">
+                <source src="src/battlezone.mp3" type="audio/mpeg">
+                <source src="src/battlezone.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="battlezone_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/kingandballoon.png" alt="King & Balloon" class="icon" id="kingandballoon" title="King & Balloon (Namco, 1980)&#010;A shooting game where the player ship can be destroyed as many times as possible,&#010;as players protect a chatty king from being captured by balloons."> 
+            </button>
+            <audio preload="auto" loop  id="kingandballoon-audio">
+                <source src="src/kingandballoon.mp3" type="audio/mpeg">
+                <source src="src/kingandballoon.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="kingandballoon_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/missilecommand.png" alt="Missile Command" class="icon" id="missilecommand" title="Missile Command (Atari, 1980)&#010;Players defend cities from missiles; this game ends on an anti-nuclear war message."> 
+            </button>
+            <audio preload="auto" loop  id="missilecommand_audio">
+                <source src="src/missilecommand.mp3" type="audio/mpeg">
+                <source src="src/missilecommand.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="missilecommand_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/pacman.png" alt="Pac-Man" class="icon" id="pacman" title="Pac-Man (Namco, 1980)&#010;This game's characters and gameplay were designed to appeal to a wide demographic."> 
+            </button>
+            <audio preload="auto" loop  id="pacman-audio">
+                <source src="src/pacman.mp3" type="audio/mpeg">
+                <source src="src/pacman.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="pacman_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <!-- <div class="grid-item">
+            <button type="button">
+                <img src="img/phoenix.png" alt="Phoenix" class="icon" id="phoenix" title="Phoenix (Amstar Electronix, 1980)&#010;The Mothership is one of video gaming's first boss battles."> 
+            </button>
+            <audio preload="auto" loop  id="phoenix_audio">
+                <source src="src/phoenix.mp3" type="audio/mpeg">
+                <source src="src/phoenix.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="phoenix_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div> -->
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/rallyx.png" alt="Rally-X" class="icon" id="Rally-X" title="Rally-X (Namco, 1980)&#010;One of the first to feature background music during gameplay."> 
+            </button>
+            <audio preload="auto" loop  id="rallyx_audio">
+                <source src="src/rallyx.mp3" type="audio/mpeg">
+                <source src="src/rallyx.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="rallyx_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <!-- <div class="grid-item">
+            <button type="button">
+                <img src="img/defender.png" alt="Defender" class="icon" id="defender" title="Defender (Midway, 1980)&#010;Eugene Jarvis' first video game project."> 
+            </button>
+
+            <audio preload="auto" loop  id="defender_audio">
+                <source src="src/defender.mp3" type="audio/mpeg">
+                <source src="src/defender.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="defender_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div> -->
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/bosconian.png" alt="Bosconian" class="icon" id="bosconian" title="Bosconian (Namco, 1981)&#010;Players search for and destroy bosses in open space. Features digitized voice samples."> 
+            </button>
+            <audio preload="auto" loop  id="bosconian-audio">
+                <source src="src/bosconian.mp3" type="audio/mpeg">
+                <source src="src/bosconian.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="bosconian_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/centipede.png" alt="Centipede" class="icon" id="centipede" title="Centipede (Atari, 1981)&#010;A pastel-colored shooter with a trackball and broad appeal."> 
+            </button>
+            <audio preload="auto" loop  id="centipede-audio">
+                <source src="src/centipede.mp3" type="audio/mpeg">
+                <source src="src/centipede.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="centipede_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/galaga.png" alt="Galaga" class="icon" id="galaga" title="Galaga (Namco, 1981)&#010;Sequel to Galaxian where players can double their firepower."> 
+            </button>
+            <audio preload="auto" loop  id="galaga_audio">
+                <source src="src/galaga.mp3" type="audio/mpeg">
+                <source src="src/galaga.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="galaga_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/mspacman.png" alt="Ms. Pac-Man" class="icon" id="mspacman" title="Ms. Pac-Man (Midway, 1981)&#010;A modification of Pac-Man developed by General Computer Corporation."> 
+            </button>
+            <audio preload="auto" loop  id="mspacman_audio">
+                <source src="src/mspacman.mp3" type="audio/mpeg">
+                <source src="src/mspacman.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="mspacman_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/tempest.png" alt="Tempest" class="icon" id="tempest" title="Tempest (Atari, 1981)&#010;A shooting game where levels are divided into lanes. The first game to allow the player to choose their starting level."> 
+            </button>
+            <audio preload="auto" loop  id="tempest_audio">
+                <source src="src/tempest.mp3" type="audio/mpeg">
+                <source src="src/tempest.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="tempest_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <!-- <div class="grid-item">
+            <button type="button">
+                <img src="img/qix.png" alt="Qix" class="icon" id="qix" title="Qix (Taito, 1981)&#010;An abstract puzzle game of drawing rectangles while avoiding obstacles."> 
+            </button>
+            <audio preload="auto" loop  id="qix_audio">
+                <source src="src/qix.mp3" type="audio/mpeg">
+                <source src="src/qix.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="spaceinvaders_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div> -->
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/burgertime.png" alt="burgertime" class="icon" id="burgertime" title="Burger Time (1982, Data East)&#010;Players assemble giant hamburgers and avoid enemy eggs, sausages, and pickles."> 
+            </button>
+            <audio preload="auto" loop  id="burgertime_audio">
+                <source src="src/burgertime.mp3" type="audio/mpeg">
+                <source src="src/burgertime.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="burgertime_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/digdug.png" alt="digdug" class="icon" id="digdug" title="Dig Dug (Namco, 1982)&#010;A strategic game where players can dig their own path through each level."> 
+            </button>
+            <audio preload="auto" loop  id="digdug_audio">
+                <source src="src/digdug.mp3" type="audio/mpeg">
+                <source src="src/digdug.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="digdug_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/pepperii.png" alt="pepperii" class="icon" id="pepperii" title="Pepper II (Exidy, 1982)&#010;A maze game where players move among four mazes at once."> 
+            </button>
+            <audio preload="auto" loop  id="pepperii_audio">
+                <source src="src/pepperii.mp3" type="audio/mpeg">
+                <source src="src/pepperii.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="pepperii_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/poleposition.png" alt="poleposition" class="icon" id="poleposition" title="Pole Position (Namco, 1982)&#010;The first 16-bit video game. A realistic racing game featuring the Fuji Speedway racetrack and product placement."> 
+            </button>
+            <audio preload="auto" loop  id="poleposition_audio">
+                <source src="src/poleposition.mp3" type="audio/mpeg">
+                <source src="src/poleposition.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="poleposition_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/crystalcastles.png" alt="Crystal Castles" class="icon" id="crystalcastles" title="Crystal Castles (Atari, 1983)&#010;Players grab gems in this isometric maze game featuring an ending instead of looping."> 
+            </button>
+            <audio preload="auto" loop  id="crystalcastles-audio">
+                <source src="src/crystalcastles.mp3" type="audio/mpeg">
+                <source src="src/crystalcastles.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="crystalcastles_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/arkanoid.png" alt="arkanoid" class="icon" id="arkanoid" title="Arkanoid (Taito, 1986)&#010;A complex brick-breaking game featuring powerups, enemies, and various stage layouts."> 
+            </button>
+            <audio preload="auto" loop  id="arkanoid_audio">
+                <source src="src/arkanoid.mp3" type="audio/mpeg">
+                <source src="src/arkanoid.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="arkanoid_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/noisew.png" alt="White Noise" class="icon" id="noisew" title="White Noise"> 
+            </button>
+            <audio preload="auto" loop  id="noisew_audio">
+                <source src="src/whitenoise.mp3" type="audio/mpeg">
+                <source src="src/whitenoise.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+            <span>
+                <input type="range" id="noisew_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/noisep.png" alt="Pink Noise" class="icon" id="noisep" title="Pink Noise"> 
+            </button>
+            <audio preload="auto" loop  id="noisep_audio">
+                <source src="src/pinknoise.mp3" type="audio/mpeg">
+                <source src="src/pinknoise.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="noisep_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+        <div class="grid-item">
+            <button type="button">
+                <img src="img/noiseb.png" alt="Brownian Noise" class="icon" id="noiseb" title="Brownian Noise"> 
+            </button>
+            <audio preload="auto" loop  id="noiseb_audio">
+                <source src="src/browniannoise.mp3" type="audio/mpeg">
+                <source src="src/browniannoise.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>    
+            <span>
+                <input type="range" id="noiseb_vol" class="control-volume" min="0" max="1" value="0.5" step="0.01" data-action="volume" />
+                    <datalist>
+                        <option value="0" label="min">
+                        <option value="1" label="max">
+                    </datalist>
+            </span>
+        </div>
+    </div>
+    
+    </div>
+    
+    <footer>
+        <!-- Copyright footer -->
+        <div>
+            <h4><a href="https://jonathan-so.com">I also create games, which can be played here.</a></h4>
+            <h4>Inspired by <a href="http://arcade.hofle.com/">Andy Hofle's <i>Arcade Ambience</i></a> project. All audio recorded from software available at <a href="https://archive.org">Internet Archive.</a></h4>
+            <h4>Special thanks to Prof. Tony Jefferson and Phyllis Nehra (LPC).</h4>
+            <h4>2020. Created by Jonathan So. All characters and images on this site are trademark and copyright by their respective owners.</h4>
+            <h4>This game is a non-commercial (non-profit) work. Under Section 107 of Title 17 in the Copyright Act of 1976, the representation of previously copyrighted works in this project is transformative and is not an infringement of copyright. Please support the official releases of the properties featured.</h4>
+        </div>
+    </footer>
+<!-- End Document - inclusion of Scripts -->
+    <script src="audio-handler.js"></script>
+    <script src="background-color.js"></script>
+
+</body>
+</html>
